@@ -75,3 +75,16 @@ func Monitor(ctx context.Context, url string) {
 		}
 	}
 }
+
+
+func SetMonitorLogsForTest(logs []models.MonitorLogs){
+	logsMutex.Lock()
+	defer logsMutex.Unlock()
+	monitorLogs = logs
+}
+
+func ResetMonitorLogsForTest(){
+	logsMutex.Lock()
+	defer logsMutex.Unlock()
+	monitorLogs = []models.MonitorLogs{}
+}

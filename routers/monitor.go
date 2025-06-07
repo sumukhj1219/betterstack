@@ -6,14 +6,12 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/gin-gonic/gin"
 	"github.com/sumukhj1219/betterstack/controllers"
 	"github.com/sumukhj1219/betterstack/utils"
 )
 
 func MonitorRouter(ctx context.Context, url string) {
-	router := gin.Default()
-	// router.GET("/", controllers.PingController)
+	router := SetupGinRouter(ctx)
 
 	go controllers.Monitor(ctx, url)
 
