@@ -38,7 +38,7 @@ func Monitor(ctx context.Context, url string) {
 	for {
 		select {
 		case <-ctx.Done():
-			fmt.Println("Stopped monitoring %s\n", url)
+			fmt.Println("Stopped monitoring %s", url)
 			return
 		case <-ticker.C:
 			currentTime := time.Now()
@@ -76,14 +76,13 @@ func Monitor(ctx context.Context, url string) {
 	}
 }
 
-
-func SetMonitorLogsForTest(logs []models.MonitorLogs){
+func SetMonitorLogsForTest(logs []models.MonitorLogs) {
 	logsMutex.Lock()
 	defer logsMutex.Unlock()
 	monitorLogs = logs
 }
 
-func ResetMonitorLogsForTest(){
+func ResetMonitorLogsForTest() {
 	logsMutex.Lock()
 	defer logsMutex.Unlock()
 	monitorLogs = []models.MonitorLogs{}

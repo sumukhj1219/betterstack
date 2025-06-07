@@ -43,5 +43,5 @@ func PrintLogs(logsMutex *sync.RWMutex, monitorLogs []models.MonitorLogs) {
 	for i, logEntry := range logs {
 		log.Printf("[%d] URL: %s, Time: %s, Status: %s\n", i+1, logEntry.Url, logEntry.Time, logEntry.Status)
 	}
-	log.Println("------------------------------------------\n")
+	log.Println("------------------------------------------")
 }
