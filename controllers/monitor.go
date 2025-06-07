@@ -38,7 +38,7 @@ func Monitor(ctx context.Context, url string) {
 	for {
 		select {
 		case <-ctx.Done():
-			fmt.Println("Stopped monitoring %s", url)
+			fmt.Printf("Stopped monitoring %s \n", url)
 			return
 		case <-ticker.C:
 			currentTime := time.Now()
